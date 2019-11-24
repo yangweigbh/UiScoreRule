@@ -27,10 +27,10 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
-    public UiScoreRule mDumpGfxInfoRule = new UiScoreRule();
+    public UiScoreRule mUiScoreRule = new UiScoreRule();
 
     @Rule
-    public ActivityTestRule activityTestRule = new ActivityTestRule(MainActivity.class);
+    public ActivityTestRule mActivityTestRule = new ActivityTestRule(MainActivity.class);
 
     protected UiDevice mDevice;
     private String mTargetPackage;

@@ -23,7 +23,6 @@ public final class CollectorThread extends HandlerThread {
     private FrameStatsCollector mCollector;
     private Window mAttachedWindow;
     private List<FrameMetrics> mFrameTimingStats;
-    private long mLastFrameTime;
     private WeakReference<CollectorListener> mListener;
 
     private volatile boolean mCollecting;
@@ -31,7 +30,6 @@ public final class CollectorThread extends HandlerThread {
 
     public interface CollectorListener {
         void onCollectorThreadReady();
-        void onPostInteraction(List<FrameMetrics> stats);
     }
 
     static boolean tripleBuffered = false;
@@ -46,7 +44,6 @@ public final class CollectorThread extends HandlerThread {
             }
 
             mFrameTimingStats.add(new FrameMetrics(frameMetrics));
-            mLastFrameTime = SystemClock.uptimeMillis();
         }
     }
 
@@ -105,7 +102,6 @@ public final class CollectorThread extends HandlerThread {
     }
 
     public void markInteractionStart() {
-        mLastFrameTime = 0;
         mFrameTimingStats.clear();
         mCollecting = true;
     }
