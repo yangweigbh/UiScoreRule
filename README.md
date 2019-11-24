@@ -20,7 +20,15 @@ allprojects {
 in your app `build.gradle`
 
 ```java
-testInstrumentationRunnerArguments 'listener': 'com.github.yangweigbh.uiscore.TestListener'
+
+android {
+    ...
+    defaultConfig {
+        ...
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments 'listener': 'com.github.yangweigbh.uiscore.TestListener'
+    }
+}
 
 dependencies {
     androidTestImplementation 'com.github.yangweigbh:UiScoreRule:1.1'
