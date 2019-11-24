@@ -9,7 +9,7 @@ import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.UiObject2;
 import androidx.test.uiautomator.Until;
 
-import com.github.yangweigbh.uiscore.DumpGfxinfoRule;
+import com.github.yangweigbh.uiscore.UiScoreRule;
 import com.github.yangweigbh.uiscore.PerfTest;
 
 import org.junit.Before;
@@ -27,7 +27,7 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
-    public DumpGfxinfoRule mDumpGfxInfoRule = new DumpGfxinfoRule();
+    public UiScoreRule mDumpGfxInfoRule = new UiScoreRule();
 
     @Rule
     public ActivityTestRule activityTestRule = new ActivityTestRule(MainActivity.class);

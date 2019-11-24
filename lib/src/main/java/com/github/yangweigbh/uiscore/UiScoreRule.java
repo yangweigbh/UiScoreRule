@@ -13,7 +13,7 @@ import org.junit.runners.model.Statement;
 
 import java.util.List;
 
-public class DumpGfxinfoRule implements TestRule, Application.ActivityLifecycleCallbacks, CollectorThread.CollectorListener {
+public class UiScoreRule implements TestRule, Application.ActivityLifecycleCallbacks, CollectorThread.CollectorListener {
     private String mTestName;
     private boolean mIsPerfTest;
     private Activity mActivity;
