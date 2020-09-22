@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- *
+ * background thread to collect frames stats using Frame Metrics API
  */
 public final class CollectorThread extends HandlerThread {
     private FrameStatsCollector mCollector;
@@ -26,7 +26,6 @@ public final class CollectorThread extends HandlerThread {
     private WeakReference<CollectorListener> mListener;
 
     private volatile boolean mCollecting;
-
 
     public interface CollectorListener {
         void onCollectorThreadReady();

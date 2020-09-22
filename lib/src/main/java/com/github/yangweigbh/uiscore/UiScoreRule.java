@@ -46,6 +46,8 @@ public class UiScoreRule implements TestRule, Application.ActivityLifecycleCallb
     }
 
     private void postTest() {
+        mAppContext.unregisterActivityLifecycleCallbacks(this);
+
         List<FrameMetrics> frameMetrics = mCollectorThread.getFrameTimingStats();
 
         if (frameMetrics.size() > 0) {
@@ -92,9 +94,5 @@ public class UiScoreRule implements TestRule, Application.ActivityLifecycleCallb
     @Override public void onCollectorThreadReady() {
         mCollectorThread.attachToWindow(mActivity.getWindow());
         mCollectorThread.markInteractionStart();
-    }
-
-    @Override public void onPostInteraction(List<FrameMetrics> stats) {
-
     }
 }
